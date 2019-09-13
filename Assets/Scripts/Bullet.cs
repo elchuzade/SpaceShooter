@@ -6,6 +6,8 @@ public class Bullet : MonoBehaviour
 {
     public int damage;
     public string bulletType;
+    public float speed;
+    public float fireRate;
 
     // Damage set and get
     public void SetDamage(int damageOfBullet)
@@ -24,5 +26,23 @@ public class Bullet : MonoBehaviour
     public string GetBulletType()
     {
         return bulletType;
+    }
+    // Speed set and get
+    public void SetSpeed(float speedOfBullet)
+    {
+        speed = speedOfBullet;
+    }
+    public float GetSpeed()
+    {
+        return speed;
+    }
+    // FireRate set and get
+    public void SetFireRate(float fireRateOfBullet)
+    {
+        fireRate = fireRateOfBullet;
+    }
+    public float GetFireRate()
+    {
+        return fireRate;
     }
 }
