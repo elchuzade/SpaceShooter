@@ -2,17 +2,27 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NewBehaviourScript : MonoBehaviour
+public class Bullet : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public int damage;
+    public string bulletType;
 
-    // Update is called once per frame
-    void Update()
+    // Damage set and get
+    public void SetDamage(int damageOfBullet)
     {
-        
+        damage = damageOfBullet;
+    }
+    public int GetDamage()
+    {
+        return damage;
+    }
+    // Type set and get
+    public void SetType(string typeOfBullet)
+    {
+        bulletType = typeOfBullet;
+    }
+    public string GetBulletType()
+    {
+        return bulletType;
     }
 }

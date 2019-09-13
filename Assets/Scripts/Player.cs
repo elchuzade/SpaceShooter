@@ -26,7 +26,9 @@ public class Player : MonoBehaviour
 
     private void Awake()
     {
-        
+        FrontShootHide();
+        SideShootHide();
+        RocketHide();
     }
 
     private void Update()
