@@ -45,11 +45,11 @@ public class Player : MonoBehaviour
 
     private void Fire()
     {
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetButtonDown("Fire1") || Input.GetKeyDown("space"))
         {
             firingCoroutine = StartCoroutine(FireContinuously());
         }
-        if (Input.GetButtonUp("Fire1"))
+        if (Input.GetButtonUp("Fire1") || Input.GetKeyUp("space"))
         {
             StopCoroutine(firingCoroutine);
         }
@@ -67,10 +67,10 @@ public class Player : MonoBehaviour
     {
         while (true)
         {
-            GameObject mainBullet = Instantiate(mainBulletPrefab, transform.position, Quaternion.identity) as GameObject;
+            // Create Where the mouse is
+            GameObject mainBullet = Instantiate(mainBulletPrefab, transform.position + new Vector3(0f,120f,0f), Quaternion.identity) as GameObject;
             mainBullet.transform.SetParent(gameSpace);
             MainBullet mainBulletScript = mainBullet.GetComponent<MainBullet>();
-            Debug.Log(mainBulletScript.GetSpeed());
             mainBullet.GetComponent<Rigidbody2D>().velocity = new Vector2(0, mainBulletScript.GetSpeed());
             yield return new WaitForSeconds(mainBulletScript.GetFireRate());
         }

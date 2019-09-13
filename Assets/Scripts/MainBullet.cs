@@ -28,4 +28,21 @@ public class MainBullet : Bullet
     {
         
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        Debug.Log("feifj");
+        if (collision.gameObject.name == "LeftWall" ||
+            collision.gameObject.name == "RightWall" ||
+            collision.gameObject.name == "TopWall" ||
+            collision.gameObject.name == "BottomWall")
+        {
+            DestroyBullet();
+        }
+    }
+
+    public void DestroyBullet()
+    {
+        Destroy(gameObject);
+    }
 }

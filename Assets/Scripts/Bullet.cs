@@ -45,4 +45,6 @@ public class Bullet : MonoBehaviour
     {
         return fireRate;
     }
+
+
 }
