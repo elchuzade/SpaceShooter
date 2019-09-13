@@ -14,6 +14,7 @@ public class Player : MonoBehaviour
     [SerializeField] Image Body;
     [SerializeField] Image Rocket;
     [SerializeField] GameObject mainBulletPrefab;
+    [SerializeField] GameObject frontBulletPrefab;
 
     [SerializeField] Transform gameSpace;
 
@@ -27,11 +28,11 @@ public class Player : MonoBehaviour
     private float yMin;
     private float yMax;
 
-    Coroutine firingCoroutine;
+    Coroutine mainBulletFiringCoroutine;
+    Coroutine frontBulletFiringCoroutine;
 
     private void Awake()
     {
-        FrontShootHide();
         SideShootHide();
         RocketHide();
         SetupMoveBoundaries();
@@ -45,13 +46,31 @@ public class Player : MonoBehaviour
 
     private void Fire()
     {
+        MainBulletFire();
+        FrontBulletFire();
+    }
+
+    private void FrontBulletFire()
+    {
         if (Input.GetButtonDown("Fire1") || Input.GetKeyDown("space"))
         {
-            firingCoroutine = StartCoroutine(FireContinuously());
+            frontBulletFiringCoroutine = StartCoroutine(FrontBulletsFireContinuously());
         }
         if (Input.GetButtonUp("Fire1") || Input.GetKeyUp("space"))
         {
-            StopCoroutine(firingCoroutine);
+            StopCoroutine(frontBulletFiringCoroutine);
+        }
+    }
+
+    private void MainBulletFire()
+    {
+        if (Input.GetButtonDown("Fire1") || Input.GetKeyDown("space"))
+        {
+            mainBulletFiringCoroutine = StartCoroutine(MainBulletsFireContinuously());
+        }
+        if (Input.GetButtonUp("Fire1") || Input.GetKeyUp("space"))
+        {
+            StopCoroutine(mainBulletFiringCoroutine);
         }
     }
 
@@ -63,16 +82,49 @@ public class Player : MonoBehaviour
         transform.position = Camera.main.ScreenToWorldPoint(new Vector3(mouseX, mouseY, 0));
     }
 
-    IEnumerator FireContinuously()
+    // Main Bullet
+    IEnumerator MainBulletsFireContinuously()
     {
         while (true)
         {
-            // Create Where the mouse is
-            GameObject mainBullet = Instantiate(mainBulletPrefab, transform.position + new Vector3(0f,120f,0f), Quaternion.identity) as GameObject;
+            // Create a new bullet where the mouse is
+            GameObject mainBullet = Instantiate(mainBulletPrefab, transform.position, Quaternion.identity) as GameObject;
+            // Set a gameSpace as the bullet's parent
             mainBullet.transform.SetParent(gameSpace);
+            // Conenct to the script of the bullet
             MainBullet mainBulletScript = mainBullet.GetComponent<MainBullet>();
-            mainBullet.GetComponent<Rigidbody2D>().velocity = new Vector2(0, mainBulletScript.GetSpeed());
+            // Move the bullet to the head of its gun
+            mainBullet.transform.Translate(mainBulletScript.GetOffset());
+            // Move the bullet in its direction until it hits something
+            mainBulletScript.Move();
+            // Repeat every fireRate times a seconds
             yield return new WaitForSeconds(mainBulletScript.GetFireRate());
+        }
+    }
+
+    // Front Bullets
+    IEnumerator FrontBulletsFireContinuously()
+    {
+        while(true)
+        {
+            // --- RIGHT BULLET
+            // Create a new bullet where the mouse is
+            GameObject frontBullet1 = Instantiate(frontBulletPrefab, transform.position, Quaternion.identity) as GameObject;
+            GameObject frontBullet2 = Instantiate(frontBulletPrefab, transform.position, Quaternion.identity) as GameObject;
+            // Set a gameSpace as the bullet's parent
+            frontBullet1.transform.SetParent(gameSpace);
+            frontBullet2.transform.SetParent(gameSpace);
+            // Conenct to the script of the bullet
+            FrontBullet frontBulletScript1 = frontBullet1.GetComponent<FrontBullet>();
+            FrontBullet frontBulletScript2 = frontBullet2.GetComponent<FrontBullet>();
+            // Move the bullet to the head of its gun
+            frontBullet1.transform.Translate(frontBulletScript1.GetOffsetLeft());
+            frontBullet2.transform.Translate(frontBulletScript2.GetOffsetRight());
+            // Move the bullet in its direction until it hits something
+            frontBulletScript1.Move();
+            frontBulletScript2.Move();
+            // Repeat every fireRate times a seconds
+            yield return new WaitForSeconds(frontBulletScript1.GetFireRate());
         }
     }
 

@@ -314,6 +314,12 @@ PrefabInstance:
       propertyPath: gameSpace
       value: 
       objectReference: {fileID: 467815883}
+    - target: {fileID: 7386915817228479888, guid: 65ff0eabca5fb4b3bbc463e96e85fc87,
+        type: 3}
+      propertyPath: frontBulletPrefab
+      value: 
+      objectReference: {fileID: 2787802959898556666, guid: 5c09a9ab655c7439997f75d1abc42470,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 65ff0eabca5fb4b3bbc463e96e85fc87, type: 3}
 --- !u!4 &358032390 stripped
@@ -713,10 +719,25 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 2062427495586456313, guid: 7ffc1df34f53c4dc2bc66bc46ea5b0b1,
+    - target: {fileID: 8074695322894855437, guid: 7ffc1df34f53c4dc2bc66bc46ea5b0b1,
         type: 3}
-      propertyPath: m_Size.y
-      value: 50
+      propertyPath: m_Mass
+      value: 126000
+      objectReference: {fileID: 0}
+    - target: {fileID: 6645265864740885350, guid: 7ffc1df34f53c4dc2bc66bc46ea5b0b1,
+        type: 3}
+      propertyPath: m_Mass
+      value: 126000
+      objectReference: {fileID: 0}
+    - target: {fileID: 1505808135105849596, guid: 7ffc1df34f53c4dc2bc66bc46ea5b0b1,
+        type: 3}
+      propertyPath: m_Mass
+      value: 89000
+      objectReference: {fileID: 0}
+    - target: {fileID: 1365263223287559167, guid: 7ffc1df34f53c4dc2bc66bc46ea5b0b1,
+        type: 3}
+      propertyPath: m_Mass
+      value: 89000
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7ffc1df34f53c4dc2bc66bc46ea5b0b1, type: 3}

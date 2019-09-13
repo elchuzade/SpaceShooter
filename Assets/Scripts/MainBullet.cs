@@ -29,20 +29,13 @@ public class MainBullet : Bullet
         
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    public void Move()
     {
-        Debug.Log("feifj");
-        if (collision.gameObject.name == "LeftWall" ||
-            collision.gameObject.name == "RightWall" ||
-            collision.gameObject.name == "TopWall" ||
-            collision.gameObject.name == "BottomWall")
-        {
-            DestroyBullet();
-        }
+        gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(0, mainBulletSpeed);
     }
 
-    public void DestroyBullet()
+    public Vector3 GetOffset()
     {
-        Destroy(gameObject);
+        return new Vector3(0f, 120f, 0f);
     }
 }

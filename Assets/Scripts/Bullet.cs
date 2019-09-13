@@ -46,5 +46,18 @@ public class Bullet : MonoBehaviour
         return fireRate;
     }
 
-
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.name == "LeftWall" ||
+            collision.gameObject.name == "RightWall" ||
+            collision.gameObject.name == "TopWall" ||
+            collision.gameObject.name == "BottomWall")
+        {
+            DestroyBullet();
+        }
+    }
+    public void DestroyBullet()
+    {
+        Destroy(gameObject);
+    }
 }
