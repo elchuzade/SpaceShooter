@@ -11,7 +11,7 @@ public class FrontBullet : Bullet
 
     private void Awake()
     {
-        SetType("front");
+        SetBulletType("front");
         SetDamage(frontBulletDamage);
         SetSpeed(frontBulletSpeed);
         SetFireRate(frontBulletFireRate);

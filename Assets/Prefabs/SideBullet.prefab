@@ -88,7 +88,7 @@ GameObject:
   - component: {fileID: 1141581206011513212}
   m_Layer: 5
   m_Name: SideBullet
-  m_TagString: Untagged
+  m_TagString: SideBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -172,10 +172,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92bc6ebef01f6432f8609c612af36eed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 5
-  bulletType: side
-  speed: 4000
-  fireRate: 0.05
   sideBullet: {fileID: 21300000, guid: d52a180ed1fe8497696e0e18e81a60f6, type: 3}
   sideBulletDamage: 5
   sideBulletSpeed: 4000

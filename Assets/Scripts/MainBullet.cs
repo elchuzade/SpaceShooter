@@ -11,7 +11,7 @@ public class MainBullet : Bullet
 
     private void Awake()
     {
-        SetType("main");
+        SetBulletType("main");
         SetDamage(mainBulletDamage);
         SetSpeed(mainBulletSpeed);
         SetFireRate(mainBulletFireRate);
@@ -19,7 +19,7 @@ public class MainBullet : Bullet
 
     public void Move()
     {
-        gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(0, mainBulletSpeed);
+        GetComponent<Rigidbody2D>().velocity = new Vector2(0, mainBulletSpeed);
     }
 
     public Vector3 GetOffset()

@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    public int damage;
-    public string bulletType;
-    public float speed;
-    public float fireRate;
+    private int damage;
+    private string bulletType;
+    private float speed;
+    private float fireRate;
 
     // Damage set and get
     public void SetDamage(int damageOfBullet)
@@ -19,7 +19,7 @@ public class Bullet : MonoBehaviour
         return damage;
     }
     // Type set and get
-    public void SetType(string typeOfBullet)
+    public void SetBulletType(string typeOfBullet)
     {
         bulletType = typeOfBullet;
     }

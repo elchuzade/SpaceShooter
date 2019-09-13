@@ -11,7 +11,7 @@ public class SideBullet : Bullet
 
     private void Awake()
     {
-        SetType("side");
+        SetBulletType("side");
         SetDamage(sideBulletDamage);
         SetSpeed(sideBulletSpeed);
         SetFireRate(sideBulletFireRate);
