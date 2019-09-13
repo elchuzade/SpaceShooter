@@ -11,22 +11,10 @@ public class FrontBullet : Bullet
 
     private void Awake()
     {
-        SetType("main");
+        SetType("front");
         SetDamage(frontBulletDamage);
         SetSpeed(frontBulletSpeed);
         SetFireRate(frontBulletFireRate);
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 
     public void Move()

@@ -15,6 +15,7 @@ public class Player : MonoBehaviour
     [SerializeField] Image Rocket;
     [SerializeField] GameObject mainBulletPrefab;
     [SerializeField] GameObject frontBulletPrefab;
+    [SerializeField] GameObject sideBulletPrefab;
 
     [SerializeField] Transform gameSpace;
 
@@ -30,10 +31,10 @@ public class Player : MonoBehaviour
 
     Coroutine mainBulletFiringCoroutine;
     Coroutine frontBulletFiringCoroutine;
+    Coroutine sideBulletFiringCoroutine;
 
     private void Awake()
     {
-        SideShootHide();
         RocketHide();
         SetupMoveBoundaries();
     }
@@ -48,6 +49,19 @@ public class Player : MonoBehaviour
     {
         MainBulletFire();
         FrontBulletFire();
+        SideBulletFire();
+    }
+
+    private void SideBulletFire()
+    {
+        if (Input.GetButtonDown("Fire1") || Input.GetKeyDown("space"))
+        {
+            sideBulletFiringCoroutine = StartCoroutine(SideBulletsFireContinuously());
+        }
+        if (Input.GetButtonUp("Fire1") || Input.GetKeyUp("space"))
+        {
+            StopCoroutine(sideBulletFiringCoroutine);
+        }
     }
 
     private void FrontBulletFire()
@@ -125,6 +139,35 @@ public class Player : MonoBehaviour
             frontBulletScript2.Move();
             // Repeat every fireRate times a seconds
             yield return new WaitForSeconds(frontBulletScript1.GetFireRate());
+        }
+    }
+
+    // Front Bullets
+    IEnumerator SideBulletsFireContinuously()
+    {
+        while (true)
+        {
+            // --- SIDE BULLET
+            // Create a new bullet where the mouse is
+            GameObject sideBullet1 = Instantiate(sideBulletPrefab, transform.position, Quaternion.identity) as GameObject;
+            GameObject sideBullet2 = Instantiate(sideBulletPrefab, transform.position, Quaternion.identity) as GameObject;
+            // Set a gameSpace as the bullet's parent
+            sideBullet1.transform.SetParent(gameSpace);
+            sideBullet2.transform.SetParent(gameSpace);
+            // Conenct to the script of the bullet
+            SideBullet sideBulletScript1 = sideBullet1.GetComponent<SideBullet>();
+            SideBullet sideBulletScript2 = sideBullet2.GetComponent<SideBullet>();
+            // Move the bullet to the head of its gun
+            sideBullet1.transform.Translate(sideBulletScript1.GetOffsetLeft());
+            sideBullet2.transform.Translate(sideBulletScript2.GetOffsetRight());
+            // Rotate the bullets to face their shooting direction
+            sideBulletScript1.RotateLeft();
+            sideBulletScript2.RotateRight();
+            // Move the bullet in its direction until it hits something
+            sideBulletScript1.MoveLeft();
+            sideBulletScript2.MoveRight();
+            // Repeat every fireRate times a seconds
+            yield return new WaitForSeconds(sideBulletScript1.GetFireRate());
         }
     }
 

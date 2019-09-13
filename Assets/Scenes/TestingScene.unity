@@ -320,6 +320,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2787802959898556666, guid: 5c09a9ab655c7439997f75d1abc42470,
         type: 3}
+    - target: {fileID: 7386915817228479888, guid: 65ff0eabca5fb4b3bbc463e96e85fc87,
+        type: 3}
+      propertyPath: sideBulletPrefab
+      value: 
+      objectReference: {fileID: 4084470847866025954, guid: 225a593a584964ecaa20b45a8003ee72,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 65ff0eabca5fb4b3bbc463e96e85fc87, type: 3}
 --- !u!4 &358032390 stripped

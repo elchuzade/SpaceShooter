@@ -17,18 +17,6 @@ public class MainBullet : Bullet
         SetFireRate(mainBulletFireRate);
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void Move()
     {
         gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(0, mainBulletSpeed);
