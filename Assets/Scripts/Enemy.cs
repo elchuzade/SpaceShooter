@@ -35,4 +35,18 @@ public class Enemy : MonoBehaviour
     {
         return enemySpeed;
     }
+    // Destroy
+    public void DestroyEnemy()
+    {
+        Destroy(gameObject);
+    }
+    // Decrease health
+    public void DecreaseHealthPoints(int damage)
+    {
+        healthPoints -= damage;
+        if (healthPoints <= 0)
+        {
+            DestroyEnemy();
+        }
+    }
 }

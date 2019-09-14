@@ -88,7 +88,7 @@ public class Player : MonoBehaviour
         }
     }
 
-    public void Move()
+    private void Move()
     {
         // Move object based on mouse coordinates
         float mouseX = Mathf.Clamp(Input.mousePosition.x, xMin, xMax);

@@ -8,6 +8,7 @@ TagManager:
   - FrontBullet
   - SideBullet
   - Spaceship
+  - Enemy
   layers:
   - Default
   - TransparentFX

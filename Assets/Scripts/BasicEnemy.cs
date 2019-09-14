@@ -19,22 +19,4 @@ public class BasicEnemy : Enemy
     {
         GetComponent<Rigidbody2D>().velocity = new Vector2(basicEnemySpeed, -basicEnemySpeed);
     }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        Debug.Log(collision.gameObject.name);
-        if (collision.gameObject.name == "MainBullet")
-        {
-            // hit main bullet
-            Debug.Log("main bullet");
-        }
-        if (collision.gameObject.name == "FrontBullet")
-        {
-            Debug.Log("front bullet");
-        }
-        if (collision.gameObject.name == "SideBullet")
-        {
-            Debug.Log("side bullet");
-        }
-    }
 }

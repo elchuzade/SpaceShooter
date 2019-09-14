@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    private int damage;
+    public int damage;
     private string bulletType;
     private float speed;
     private float fireRate;
@@ -48,13 +48,13 @@ public class Bullet : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.name == "LeftWall" ||
-            collision.gameObject.name == "RightWall" ||
-            collision.gameObject.name == "TopWall" ||
-            collision.gameObject.name == "BottomWall")
+        if (collision.gameObject.tag == "Enemy")
         {
-            DestroyBullet();
+            Enemy enemyScript = collision.gameObject.GetComponent<Enemy>();
+            enemyScript.DecreaseHealthPoints(damage);
+            
         }
+        DestroyBullet();
     }
     public void DestroyBullet()
     {
