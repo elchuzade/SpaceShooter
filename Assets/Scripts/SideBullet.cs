@@ -8,6 +8,7 @@ public class SideBullet : Bullet
     [SerializeField] int sideBulletDamage;
     [SerializeField] float sideBulletSpeed;
     [SerializeField] float sideBulletFireRate;
+    // Angle of rotation is 13 degrees
 
     private void Awake()
     {
@@ -15,16 +16,6 @@ public class SideBullet : Bullet
         SetDamage(sideBulletDamage);
         SetSpeed(sideBulletSpeed);
         SetFireRate(sideBulletFireRate);
-    }
-
-    public void RotateLeft()
-    {
-        transform.Rotate(new Vector3(0f, 0f, 13f));
-    }
-
-    public void RotateRight()
-    {
-        transform.Rotate(new Vector3(0f, 0f, -13f));
     }
 
     public void MoveLeft()
@@ -39,11 +30,11 @@ public class SideBullet : Bullet
 
     public Vector3 GetOffsetLeft()
     {
-        return new Vector3(-112f, -10f, 0f);
+        return new Vector3(-110f, 8f, 0f);
     }
 
     public Vector3 GetOffsetRight()
     {
-        return new Vector3(112f, -10f, 0f);
+        return new Vector3(110f, 8f, 0f);
     }
 }

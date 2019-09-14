@@ -147,15 +147,16 @@ public class Player : MonoBehaviour
         }
     }
 
-    // Front Bullets
+    // Side Bullets
     IEnumerator SideBulletsFireContinuously()
     {
         while (true)
         {
             // --- SIDE BULLET
             // Create a new bullet where the mouse is
-            GameObject sideBullet1 = Instantiate(sideBulletPrefab, transform.position, Quaternion.identity) as GameObject;
-            GameObject sideBullet2 = Instantiate(sideBulletPrefab, transform.position, Quaternion.identity) as GameObject;
+            // 13 is an angle of rotation for the bullet to match the gun direction
+            GameObject sideBullet1 = Instantiate(sideBulletPrefab, transform.position, Quaternion.Euler(new Vector3(0, 0, 13))) as GameObject;
+            GameObject sideBullet2 = Instantiate(sideBulletPrefab, transform.position, Quaternion.Euler(new Vector3(0, 0, -13))) as GameObject;
             // Set a gameSpace as the bullet's parent
             sideBullet1.transform.SetParent(gameSpace);
             sideBullet2.transform.SetParent(gameSpace);
@@ -165,9 +166,6 @@ public class Player : MonoBehaviour
             // Move the bullet to the head of its gun
             sideBullet1.transform.Translate(sideBulletScript1.GetOffsetLeft());
             sideBullet2.transform.Translate(sideBulletScript2.GetOffsetRight());
-            // Rotate the bullets to face their shooting direction
-            sideBulletScript1.RotateLeft();
-            sideBulletScript2.RotateRight();
             // Move the bullet in its direction until it hits something
             sideBulletScript1.MoveLeft();
             sideBulletScript2.MoveRight();
