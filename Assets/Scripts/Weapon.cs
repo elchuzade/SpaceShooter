@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Weapon : MonoBehaviour
 {
-    private string weaponType;
+    private string weaponType = "front";
     private float weaponMoveSpeed = 400f;
 
     // Type set and get

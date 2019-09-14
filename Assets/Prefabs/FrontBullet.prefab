@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2787802959898556665}
   - component: {fileID: 2787802959898556664}
   - component: {fileID: 3482224046891396038}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: FrontBullet
   m_TagString: FrontBullet
   m_Icon: {fileID: 0}
@@ -98,6 +98,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76580a8199fe4498fbf556fb00045a5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 0
   frontBullet: {fileID: 21300000, guid: d52a180ed1fe8497696e0e18e81a60f6, type: 3}
   frontBulletDamage: 5
   frontBulletSpeed: 4000
@@ -113,7 +114,7 @@ GameObject:
   - component: {fileID: 2787802961519113985}
   - component: {fileID: 2787802961519114239}
   - component: {fileID: 2787802961519114238}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: FrontBulletIcon
   m_TagString: Untagged
   m_Icon: {fileID: 0}

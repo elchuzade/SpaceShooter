@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6767263890506880232}
   - component: {fileID: 5007880994299329829}
   - component: {fileID: 1165685642}
-  m_Layer: 5
+  m_Layer: 12
   m_Name: FrontWeapon
   m_TagString: Weapon
   m_Icon: {fileID: 0}
@@ -99,7 +99,7 @@ GameObject:
   - component: {fileID: 1983055246264936994}
   - component: {fileID: 1983055246264936992}
   - component: {fileID: 1983055246264936993}
-  m_Layer: 5
+  m_Layer: 12
   m_Name: FrontWeaponIcon
   m_TagString: Untagged
   m_Icon: {fileID: 0}

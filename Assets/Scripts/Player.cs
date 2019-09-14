@@ -36,6 +36,8 @@ public class Player : MonoBehaviour
     private void Awake()
     {
         RocketHide();
+        FrontShootHide();
+        SideShootHide();
         SetupMoveBoundaries();
     }
 
@@ -53,8 +55,15 @@ public class Player : MonoBehaviour
     private void Fire()
     {
         MainBulletFire();
-        FrontBulletFire();
-        SideBulletFire();
+        if (frontShoot)
+        {
+            FrontBulletFire();
+        }
+        if (sideShoot)
+        {
+            SideBulletFire();
+        }
+        
     }
 
     private void SideBulletFire()
@@ -189,6 +198,26 @@ public class Player : MonoBehaviour
         {
             Weapon weaponScript = collision.gameObject.GetComponent<Weapon>();
             weaponScript.CollectWeapon();
+            CollectNewWeapon(weaponScript.GetWeaponType());
+        }
+    }
+
+    private void CollectNewWeapon(string weaponType)
+    {
+        switch (weaponType)
+        {
+            case "front":
+                frontShoot = true;
+                FrontShootShow();
+                break;
+            case "side":
+                sideShoot = true;
+                SideShootShow();
+                break;
+            case "rocket":
+                rocket = true;
+                RocketShow();
+                break;
         }
     }
 

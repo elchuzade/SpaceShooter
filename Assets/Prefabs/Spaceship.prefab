@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7386915815897303770}
   - component: {fileID: 7386915815897303764}
   - component: {fileID: 7386915815897303771}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -85,7 +85,7 @@ GameObject:
   - component: {fileID: 7386915817228479895}
   - component: {fileID: 7386915817228479888}
   - component: {fileID: 988348017473272382}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spaceship
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -181,7 +181,7 @@ GameObject:
   - component: {fileID: 7386915817313064479}
   - component: {fileID: 7386915817313064473}
   - component: {fileID: 7386915817313064472}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Rocket
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -255,7 +255,7 @@ GameObject:
   - component: {fileID: 7386915817527380010}
   - component: {fileID: 7386915817527380004}
   - component: {fileID: 7386915817527380011}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: SideShoot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -329,7 +329,7 @@ GameObject:
   - component: {fileID: 7386915817732833735}
   - component: {fileID: 7386915817732833729}
   - component: {fileID: 7386915817732833728}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: FrontShoot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
