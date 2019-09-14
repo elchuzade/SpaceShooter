@@ -183,6 +183,15 @@ public class Player : MonoBehaviour
         yMax = gameCamera.ViewportToWorldPoint(new Vector3(0, 1, 0)).y - paddingTop;
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Weapon")
+        {
+            Weapon weaponScript = collision.gameObject.GetComponent<Weapon>();
+            weaponScript.CollectWeapon();
+        }
+    }
+
     // Hide weapons
     public void FrontShootHide()
     {
