@@ -39,6 +39,11 @@ public class Player : MonoBehaviour
         SetupMoveBoundaries();
     }
 
+    private void Start()
+    {
+        
+    }
+
     private void Update()
     {
         Move();
@@ -54,11 +59,11 @@ public class Player : MonoBehaviour
 
     private void SideBulletFire()
     {
-        if (Input.GetButtonDown("Fire1") || Input.GetKeyDown("space"))
+        if (Input.GetKeyDown("space"))
         {
             sideBulletFiringCoroutine = StartCoroutine(SideBulletsFireContinuously());
         }
-        if (Input.GetButtonUp("Fire1") || Input.GetKeyUp("space"))
+        if (Input.GetKeyUp("space"))
         {
             StopCoroutine(sideBulletFiringCoroutine);
         }
@@ -66,11 +71,11 @@ public class Player : MonoBehaviour
 
     private void FrontBulletFire()
     {
-        if (Input.GetButtonDown("Fire1") || Input.GetKeyDown("space"))
+        if (Input.GetKeyDown("space"))
         {
             frontBulletFiringCoroutine = StartCoroutine(FrontBulletsFireContinuously());
         }
-        if (Input.GetButtonUp("Fire1") || Input.GetKeyUp("space"))
+        if (Input.GetKeyUp("space"))
         {
             StopCoroutine(frontBulletFiringCoroutine);
         }
@@ -78,11 +83,11 @@ public class Player : MonoBehaviour
 
     private void MainBulletFire()
     {
-        if (Input.GetButtonDown("Fire1") || Input.GetKeyDown("space"))
+        if (Input.GetKeyDown("space"))
         {
             mainBulletFiringCoroutine = StartCoroutine(MainBulletsFireContinuously());
         }
-        if (Input.GetButtonUp("Fire1") || Input.GetKeyUp("space"))
+        if (Input.GetKeyUp("space"))
         {
             StopCoroutine(mainBulletFiringCoroutine);
         }
@@ -93,7 +98,7 @@ public class Player : MonoBehaviour
         // Move object based on mouse coordinates
         float mouseX = Mathf.Clamp(Input.mousePosition.x, xMin, xMax);
         float mouseY = Mathf.Clamp(Input.mousePosition.y, yMin, yMax);
-        transform.position = Camera.main.ScreenToWorldPoint(new Vector3(mouseX, mouseY, 0));
+        transform.position = Camera.main.ScreenToWorldPoint(new Vector2(mouseX, mouseY));
     }
 
     // Main Bullet
