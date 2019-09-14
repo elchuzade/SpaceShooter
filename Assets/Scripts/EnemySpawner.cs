@@ -8,10 +8,26 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] Transform gameSpace;
     int startingWave;
 
+    [SerializeField] bool looping;
+
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(SpawnAllWaves());
+        if (looping)
+        {
+            StartCoroutine(LoopEnemies());
+        } else
+        {
+            StartCoroutine(SpawnAllWaves());
+        }
+    }
+
+    IEnumerator LoopEnemies()
+    {
+        do
+        {
+            yield return StartCoroutine(SpawnAllWaves());
+        } while (looping);
     }
 
     private IEnumerator SpawnAllWaves()
